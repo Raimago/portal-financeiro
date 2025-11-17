@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validando informações...</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="assets/images/Logo Conhecimento Integrado ORIGINAL HORIZONTAL.png" alt="Conhecimento Integrado" class="logo-brain">
+          </div>
+          <div class="logo-text">
+            <span class="logo-main">
+              <span class="logo-gray">conhecimento</span><span class="logo-blue">Integrado</span>
+            </span>
+            <span class="logo-underline"></span>
+            <span class="logo-subtitle">CENTRO EDUCACIONAL</span>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Portal Financeiro</a>
+          <a href="https://ead.conhecimentointegrado.com.br" class="nav-link" target="_blank" rel="noopener noreferrer">Plataforma EAD</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="card">
+        <h1>Validando seus dados</h1>
+        <p class="subtitle">
+          Aguarde alguns instantes enquanto confirmamos CPF e e-mail.
+        </p>
+        <div class="validation-status" id="validation-status">
+          <div class="spinner"></div>
+          <p>Processando...</p>
+        </div>
+        <div class="data-preview" id="data-preview"></div>
+        <button id="retry-btn" class="secondary" hidden>
+          Voltar para o formulário
+        </button>
+      </section>
+    </main>
+    <script src="assets/js/validacao.js" type="module"></script>
+  </body>
+</html>
+
