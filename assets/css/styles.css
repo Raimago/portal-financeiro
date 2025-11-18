@@ -21,6 +21,8 @@ body {
   padding: 0;
   position: relative;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Elementos decorativos inspirados na logo */
@@ -59,6 +61,7 @@ body::after {
   top: 0;
   z-index: 100;
   width: 100%;
+  overflow: visible;
 }
 
 .header-content {
@@ -69,6 +72,8 @@ body::after {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  overflow: visible;
+  position: relative;
 }
 
 /* Logo */
@@ -79,17 +84,23 @@ body::after {
   text-decoration: none;
   color: inherit;
   margin: 0;
-  padding: 0;
+  padding: 0.25rem;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .logo:hover {
   transform: scale(1.02);
+  background: rgba(29, 91, 255, 0.05);
 }
 
 .logo:hover .logo-brain {
   transform: scale(1.05);
+}
+
+.logo:active {
+  transform: scale(0.98);
 }
 
 .logo-icon {
@@ -98,7 +109,7 @@ body::after {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   padding: 0;
   margin: 0;
@@ -271,6 +282,9 @@ input {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: #f8fbff;
   position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
 }
 
 input:hover {
@@ -313,6 +327,9 @@ button,
   display: inline-block;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 44px;
 }
 
 button::before,
@@ -453,12 +470,40 @@ button:disabled:hover {
   }
 }
 
-/* Responsividade */
+/* Responsividade - Tablets */
+@media (max-width: 1024px) {
+  .header-content {
+    padding: 1rem 1.5rem;
+  }
+
+  main.container {
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .card {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Responsividade - Tablets pequenos e smartphones grandes */
 @media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
   .header-content {
     padding: 1rem 1.5rem;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 100%;
+    justify-content: center;
+    order: 1;
+    gap: 0.5rem;
   }
 
   .logo-icon {
@@ -466,9 +511,9 @@ button:disabled:hover {
     height: 50px;
   }
 
-  .logo-icon svg {
-    max-width: 50px;
-    max-height: 50px;
+  .logo-brain {
+    height: 50px;
+    min-width: 400px;
   }
 
   .logo-main {
@@ -482,8 +527,9 @@ button:disabled:hover {
   .nav-menu {
     width: 100%;
     justify-content: center;
-    order: 3;
-    gap: 0.25rem;
+    order: 2;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .nav-link {
@@ -494,29 +540,208 @@ button:disabled:hover {
   main.container {
     margin: 2rem auto;
     padding: 0 1rem;
+    width: min(100%, 500px);
   }
 
   .card {
     padding: 2rem 1.5rem;
+    border-radius: 20px;
   }
-}
 
-@media (max-width: 480px) {
-  .header-content {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  input {
     padding: 0.9rem 1rem;
+    font-size: 0.95rem;
   }
 
-  .logo {
+  button,
+  .link-button {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .data-preview {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .validation-status {
+    flex-direction: column;
     gap: 0.75rem;
   }
 
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+}
+
+/* Responsividade - Smartphones */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0.9rem 1rem;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .logo {
+    gap: 0.4rem;
+    width: 100%;
+    justify-content: center;
+    order: 1;
+  }
+
+  .logo-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo-brain {
+    height: 45px;
+    min-width: 350px;
+  }
+
   .logo-main {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.6rem;
+  }
+
+  .nav-menu {
+    gap: 0.25rem;
+    order: 2;
+    width: 100%;
+    justify-content: center;
   }
 
   .nav-link {
     padding: 0.45rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  main.container {
+    margin: 1.5rem auto;
+    padding: 0 0.75rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    gap: 0.75rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+
+  input {
+    padding: 0.85rem 0.9rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .helper-text {
     font-size: 0.8rem;
+    margin: 0.4rem 0 1rem;
+  }
+
+  button,
+  .link-button {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .data-preview {
+    padding: 0.9rem;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .validation-status {
+    gap: 0.5rem;
+  }
+
+  .validation-status p {
+    font-size: 0.9rem;
+  }
+
+  .spinner {
+    width: 36px;
+    height: 36px;
+    border-width: 3px;
+  }
+
+  .secondary {
+    margin-top: 1.25rem;
+  }
+}
+
+/* Responsividade - Smartphones muito pequenos */
+@media (max-width: 360px) {
+  .header-content {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .logo-main {
+    font-size: 0.85rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.55rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+
+  input {
+    padding: 0.75rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  button,
+  .link-button {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
