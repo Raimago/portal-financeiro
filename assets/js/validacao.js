@@ -1,5 +1,5 @@
 const WEBHOOK_URL =
-  "https://webhook.conhecimentointegrado.com.br/webhook/Portal-Financeiro";
+  "https://n8n.conhecimentointegrado.com.br/webhook/Portal-Financeiro";
 const validationStatus = document.getElementById("validation-status");
 const dataPreview = document.getElementById("data-preview");
 const retryBtn = document.getElementById("retry-btn");

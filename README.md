@@ -57,7 +57,7 @@ Opções recomendadas:
 
 O webhook está configurado para:
 ```
-https://webhook.conhecimentointegrado.com.br/webhook/Portal-Financeiro
+https://n8n.conhecimentointegrado.com.br/webhook/Portal-Financeiro
 ```
 
 ## 📝 Licença
